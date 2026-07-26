@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ELITE EDITIONS | The Curation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Config Verbatim -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error": "#ffffff",
+                    "on-primary-container": "#7d8497",
+                    "on-secondary-fixed": "#1a1c1c",
+                    "on-tertiary-fixed-variant": "#574500",
+                    "secondary-fixed": "#e2e2e2",
+                    "surface-bright": "#fbf8fc",
+                    "secondary-container": "#e2e2e2",
+                    "error": "#ba1a1a",
+                    "primary": "#000000",
+                    "on-surface-variant": "#45464c",
+                    "on-secondary-container": "#636564",
+                    "on-tertiary-fixed": "#241a00",
+                    "on-secondary-fixed-variant": "#454747",
+                    "surface-dim": "#dcd9dd",
+                    "surface-container-highest": "#e4e1e6",
+                    "on-surface": "#1b1b1e",
+                    "secondary": "#5d5f5e",
+                    "surface-container-low": "#f6f2f7",
+                    "surface-container-high": "#eae7eb",
+                    "background": "#fbf8fc",
+                    "tertiary-fixed-dim": "#e9c349",
+                    "surface-container": "#f0edf1",
+                    "tertiary": "#735c00",
+                    "tertiary-fixed": "#ffe088",
+                    "surface-container-lowest": "#ffffff",
+                    "on-background": "#1b1b1e",
+                    "primary-container": "#141b2b",
+                    "primary-fixed-dim": "#c0c6db",
+                    "surface-tint": "#575e70",
+                    "on-error-container": "#93000a",
+                    "on-secondary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "surface": "#fbf8fc",
+                    "inverse-on-surface": "#f3f0f4",
+                    "on-primary-fixed": "#141b2b",
+                    "on-primary-fixed-variant": "#404758",
+                    "surface-variant": "#e4e1e6",
+                    "inverse-primary": "#c0c6db",
+                    "secondary-fixed-dim": "#c6c7c6",
+                    "outline-variant": "#c6c6cd",
+                    "outline": "#76777d",
+                    "on-primary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-container": "#cca830",
+                    "on-tertiary-container": "#4f3e00",
+                    "inverse-surface": "#303033",
+                    "primary-fixed": "#dce2f7"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "container-max": "1440px",
+                    "section-gap": "120px",
+                    "margin-desktop": "80px",
+                    "margin-mobile": "20px",
+                    "stack-sm": "8px",
+                    "gutter": "24px",
+                    "stack-lg": "32px",
+                    "stack-md": "16px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Playfair Display"],
+                    "headline-lg": ["Playfair Display"],
+                    "headline-md": ["Playfair Display"],
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "label-sm": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .luxury-shadow {
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.05);
+        }
+        .product-hover-overlay {
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .product-card:hover .product-hover-overlay {
+            opacity: 1;
+        }
+        .product-card:hover img {
+            transform: scale(1.05);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar for luxury feel */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #e2e2e2; border-radius: 2px; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary selection:text-white overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md shadow-sm">
+<nav class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 max-w-container-max mx-auto">
+<div class="flex items-center gap-4">
+<button class="text-primary hover:opacity-70 transition-opacity duration-300" onclick="toggleDrawer()">
+<span class="material-symbols-outlined text-[28px]" data-icon="menu">menu</span>
+</button>
+</div>
+<a class="font-display-lg text-display-lg-mobile md:text-display-lg tracking-[0.2em] text-primary" href="#">ELITE EDITIONS</a>
+<div class="flex items-center gap-6">
+<button class="hidden md:block text-primary hover:opacity-70 transition-opacity duration-300">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button class="text-primary hover:opacity-70 transition-opacity duration-300 relative">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+<span class="absolute -top-1 -right-1 w-2 h-2 bg-tertiary rounded-full"></span>
+</button>
+</div>
+</nav>
+</header>
+<!-- NavigationDrawer (Mobile Sidebar) -->
+<div class="fixed inset-0 bg-black/40 opacity-0 pointer-events-none transition-opacity duration-500 z-[55] backdrop-blur-sm" id="drawer-overlay" onclick="toggleDrawer()"></div>
+<aside class="fixed inset-y-0 left-0 w-80 z-[60] bg-surface shadow-xl -translate-x-full transition-transform duration-500 ease-in-out flex flex-col p-stack-lg" id="drawer">
+<div class="flex justify-between items-center mb-12">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary">THE CURATION</span>
+<button class="text-secondary hover:text-primary transition-colors" onclick="toggleDrawer()">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+<nav class="flex flex-col space-y-8">
+<a class="flex items-center gap-4 text-primary font-semibold border-b border-primary pb-1 font-label-sm text-label-sm uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span> Collections
+            </a>
+<a class="flex items-center gap-4 text-secondary hover:text-tertiary transition-colors font-label-sm text-label-sm uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined" data-icon="flare">flare</span> New Arrivals
+            </a>
+<a class="flex items-center gap-4 text-secondary hover:text-tertiary transition-colors font-label-sm text-label-sm uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined" data-icon="straighten">straighten</span> Bespoke
+            </a>
+<a class="flex items-center gap-4 text-secondary hover:text-tertiary transition-colors font-label-sm text-label-sm uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span> Heritage
+            </a>
+<a class="flex items-center gap-4 text-secondary hover:text-tertiary transition-colors font-label-sm text-label-sm uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span> Account
+            </a>
+</nav>
+<div class="mt-auto pt-10 border-t border-outline-variant">
+<p class="font-label-sm text-secondary-fixed-variant mb-4">CONCIERGE</p>
+<a class="block font-headline-md text-primary mb-2" href="tel:+1800ELITE">1-800-ELITE</a>
+<p class="text-label-sm text-secondary">Available 24/7 for our members.</p>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="pt-32 pb-section-gap max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<!-- Page Header -->
+<div class="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-gutter">
+<div class="max-w-2xl">
+<h1 class="font-headline-lg text-headline-lg mb-4">Spring/Summer '24: The Atelier Series</h1>
+<p class="text-body-lg text-secondary leading-relaxed">A meticulously curated selection of handcrafted garments, designed for the modern silhouette. Where architectural precision meets fluid luxury.</p>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 px-6 py-3 border border-outline text-label-sm uppercase tracking-widest hover:bg-primary hover:text-white transition-all" onclick="toggleFilter()">
+<span class="material-symbols-outlined text-[18px]" data-icon="tune">tune</span> Filter
+                </button>
+<div class="relative group">
+<button class="flex items-center gap-2 px-6 py-3 border border-outline text-label-sm uppercase tracking-widest">
+                        Sort By <span class="material-symbols-outlined text-[18px]" data-icon="expand_more">expand_more</span>
+</button>
+</div>
+</div>
+</div>
+<div class="flex gap-12">
+<!-- Desktop Sidebar Filter (Hidden on Mobile) -->
+<aside class="hidden lg:block w-64 flex-shrink-0">
+<div class="sticky top-32 space-y-12">
+<!-- Category -->
+<div>
+<h3 class="font-label-sm text-label-sm uppercase tracking-widest mb-6 border-b border-outline-variant pb-2">Category</h3>
+<div class="space-y-4">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-4 h-4 rounded-none border-outline focus:ring-0 text-primary" type="checkbox"/>
+<span class="text-body-md text-secondary group-hover:text-primary transition-colors">Silk Outerwear</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="w-4 h-4 rounded-none border-outline focus:ring-0 text-primary" type="checkbox"/>
+<span class="text-body-md text-primary font-medium transition-colors">Architectural Tailoring</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-4 h-4 rounded-none border-outline focus:ring-0 text-primary" type="checkbox"/>
+<span class="text-body-md text-secondary group-hover:text-primary transition-colors">Cashmere Essentials</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-4 h-4 rounded-none border-outline focus:ring-0 text-primary" type="checkbox"/>
+<span class="text-body-md text-secondary group-hover:text-primary transition-colors">Evening Gowns</span>
+</label>
+</div>
+</div>
+<!-- Size -->
+<div>
+<h3 class="font-label-sm text-label-sm uppercase tracking-widest mb-6 border-b border-outline-variant pb-2">Size</h3>
+<div class="grid grid-cols-4 gap-2">
+<button class="aspect-square border border-outline-variant flex items-center justify-center text-label-sm hover:border-primary transition-colors">XS</button>
+<button class="aspect-square border border-primary bg-primary text-white flex items-center justify-center text-label-sm">S</button>
+<button class="aspect-square border border-outline-variant flex items-center justify-center text-label-sm hover:border-primary transition-colors">M</button>
+<button class="aspect-square border border-outline-variant flex items-center justify-center text-label-sm hover:border-primary transition-colors">L</button>
+<button class="aspect-square border border-outline-variant flex items-center justify-center text-label-sm hover:border-primary transition-colors">XL</button>
+</div>
+</div>
+<!-- Price Range -->
+<div>
+<h3 class="font-label-sm text-label-sm uppercase tracking-widest mb-6 border-b border-outline-variant pb-2">Price</h3>
+<input class="w-full accent-primary mb-2" max="15000" min="500" type="range"/>
+<div class="flex justify-between text-label-sm text-secondary">
+<span>$500</span>
+<span>$15,000+</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Product Grid -->
+<div class="flex-grow">
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-y-16 gap-x-gutter">
+<!-- Product Card 1 -->
+<div class="product-card group cursor-pointer">
+<div class="relative aspect-[4/5] overflow-hidden mb-6 bg-surface-container">
+<img class="w-full h-full object-cover transition-transform duration-700" data-alt="A professional studio photograph of a minimalist ivory-white silk blazer draped over a phantom mannequin. The lighting is soft and cinematic, casting delicate shadows that emphasize the high-quality fabric texture. The background is a clean, neutral grey-beige, following a high-end luxury fashion aesthetic. The overall mood is sophisticated and ethereal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbAwZVKuyHpcUtlL19z9tgY1sbsPf2_xvyFlnCxN7qkDyoRiOMLr9xK6Key21VdjYo0q346vlgOQ9oVAE3LR4_N28i1JNO2Of12FI2UmTmvhmWUH2WY9UkvvwktgjBelLz1cg7c2S1s5WirdNcbZnQSEVS3hUR-8gdC4fhx3ZDnkIlm8k5zDioSEEt0-jHY6FlgdV7nmtQfdtbvyPh83nTfoGZoblr1sngj4knj-Fu0IF0w1eLS5I"/>
+<div class="product-hover-overlay absolute inset-0 bg-black/5 flex items-end justify-center p-6 backdrop-blur-[2px]">
+<button class="w-full bg-white/90 py-4 text-label-sm uppercase tracking-widest hover:bg-primary hover:text-white transition-all duration-300">Quick Add</button>
+</div>
+<span class="absolute top-4 left-4 bg-white px-3 py-1 text-[10px] font-bold uppercase tracking-widest shadow-sm">New Collection</span>
+</div>
+<div class="text-center">
+<p class="font-label-sm text-secondary-fixed-variant uppercase tracking-widest mb-2">The Atelier Series</p>
+<h3 class="font-headline-md text-body-lg mb-1 group-hover:text-tertiary transition-colors">Sculpted Silk Blazer</h3>
+<p class="font-body-md text-primary">$3,250</p>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="product-card group cursor-pointer">
+<div class="relative aspect-[4/5] overflow-hidden mb-6 bg-surface-container">
+<img class="w-full h-full object-cover transition-transform duration-700" data-alt="A high-fashion shot of a charcoal grey wool coat with architectural shoulder pads and an asymmetrical hemline. The garment is presented in a high-contrast lighting environment that creates dramatic highlights on the premium fabric. The visual style is minimal and modern, set against a dark, moody background with subtle emerald green tones. A masterpiece of modern tailoring." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcMWV8XIrBWUyeRu-FxbYjnwesOZXbK8vNESJoroUd8BcpBo5y-_8avPvlWU_00VAJPd8LveSVzv8P-lx1GdEDQIqPvIzrg_zxLbOUivamkO8YkQ13Y21EhHJJ0pkgMFnkym08IEq-lP9d0NWPqEwtZQXwG3dWqrRZSDuPE9CYs4YNRNqokbrPYL40wyMlTRnqtogel1HUsE28tE7grXwaLt6NOaFdOR409KNoURoPZwJKw3-JCkE"/>
+<div class="product-hover-overlay absolute inset-0 bg-black/5 flex items-end justify-center p-6 backdrop-blur-[2px]">
+<button class="w-full bg-white/90 py-4 text-label-sm uppercase tracking-widest hover:bg-primary hover:text-white transition-all duration-300">Quick Add</button>
+</div>
+</div>
+<div class="text-center">
+<p class="font-label-sm text-secondary-fixed-variant uppercase tracking-widest mb-2">Heritage</p>
+<h3 class="font-headline-md text-body-lg mb-1 group-hover:text-tertiary transition-colors">Architectural Overcoat</h3>
+<p class="font-body-md text-primary">$5,800</p>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="product-card group cursor-pointer">
+<div class="relative aspect-[4/5] overflow-hidden mb-6 bg-surface-container">
+<img class="w-full h-full object-cover transition-transform duration-700" data-alt="A luxurious close-up of a deep emerald green velvet evening gown with a high-shine finish. The dress is displayed in an elegant, airy studio with gold accents in the periphery. Soft, natural light pours in from the side, highlighting the rich depth of the color and the intricate draping of the fabric. The aesthetic is extremely opulent and serene, suitable for a premier luxury boutique." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2Xdckg5UtHLW4aCbR0jxrJN5BVRgHU9l9o-4oarchCyt7lBQkj2cdToL3bZjVD1zXKL4Gtlj5WF9obVCg9ZkyYnTKSphoGxWTfWP3kEbrzO4WryzBet39QAJMx7M9odiq8eNsV3bcoReSReuXO9d33WkDcWcmhYh8uMYrKcuNw-F7p1tJOgZODGKTFhMNt18tyUBYyGkogFzo9T0bDtO3wRZ4-3hZCZDNJ0I6tPXuxjl0LgA5CWI"/>
+<div class="product-hover-overlay absolute inset-0 bg-black/5 flex items-end justify-center p-6 backdrop-blur-[2px]">
+<button class="w-full bg-white/90 py-4 text-label-sm uppercase tracking-widest hover:bg-primary hover:text-white transition-all duration-300">Quick Add</button>
+</div>
+</div>
+<div class="text-center">
+<p class="font-label-sm text-secondary-fixed-variant uppercase tracking-widest mb-2">Evening</p>
+<h3 class="font-headline-md text-body-lg mb-1 group-hover:text-tertiary transition-colors">Emerald Velvet Column Gown</h3>
+<p class="font-body-md text-primary">$7,200</p>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="product-card group cursor-pointer">
+<div class="relative aspect-[4/5] overflow-hidden mb-6 bg-surface-container">
+<img class="w-full h-full object-cover transition-transform duration-700" data-alt="A high-end product photo of a pair of minimalist black trousers with a sharp front crease, made from ultra-fine tropical wool. The setting is a bright, white-on-white studio with sharp, precise shadows. The mood is clean, professional, and corporate-modern. Every stitch is visible, reflecting the high-fidelity quality of the brand. The composition is balanced and editorial." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWlLkfOvXmwHqEjxalVdUJOjSV7rbe6k9HcDtZzzbqznkiI7IE2wvwJcoMWJYGZDbXXteXHsxyD3K_svtJ7wtSx4SXyB1AoN-qCIR4ih8YLOkwf7gsW3xPO_UTUG5JWdjVlJ-01FCs4sdvofB06tYEwFhCIMrVtRqTxm5DH2muwxiiaKIiQGXsSSo9FxSbsc7bOado6w58QSZcnukH5TNe1fsJw-V6vVY0NJYNhu1ORMVDhWuQwPA"/>
+<div class="product-hover-overlay absolute inset-0 bg-black/5 flex items-end justify-center p-6 backdrop-blur-[2px]">
+<button class="w-full bg-white/90 py-4 text-label-sm uppercase tracking-widest hover:bg-primary hover:text-white transition-all duration-300">Quick Add</button>
+</div>
+</div>
+<div class="text-center">
+<p class="font-label-sm text-secondary-fixed-variant uppercase tracking-widest mb-2">Bespoke</p>
+<h3 class="font-headline-md text-body-lg mb-1 group-hover:text-tertiary transition-colors">Precision Wool Trousers</h3>
+<p class="font-body-md text-primary">$1,450</p>
+</div>
+</div>
+<!-- Product Card 5 -->
+<div class="product-card group cursor-pointer">
+<div class="relative aspect-[4/5] overflow-hidden mb-6 bg-surface-container">
+<img class="w-full h-full object-cover transition-transform duration-700" data-alt="A studio portrait of a heavy cashmere turtleneck sweater in a soft oatmeal color. The texture is exceptionally thick and soft, rendered in high detail. The lighting is warm and inviting, evoking a sense of effortless sophistication and comfort. The background is a soft-focus interior of a modern minimalist home. The palette is dominated by neutral tones and organic textures." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUBDl1bZWbDI0b0rt4jKB8J2_DRbMf43AppLzcbiahBjheYYtnrS643YupIepkFVsYcNlWhRBcw2gwS8lEsSRptP_0lAj7cJjwepnoYdv721zvCET6I-KfhMoGtkY2NIwPMyLfrSuVsRknjKBFmugy0ggCXiM6s6R6JMPiS5Yz4V71-5hTdmtFOIGNDVfN6n7rhSIX8gAS-c5mpANliRclCmOkbKyHSOc3QaQdf2TiinTNMF35E4Y"/>
+<div class="product-hover-overlay absolute inset-0 bg-black/5 flex items-end justify-center p-6 backdrop-blur-[2px]">
+<button class="w-full bg-white/90 py-4 text-label-sm uppercase tracking-widest hover:bg-primary hover:text-white transition-all duration-300">Quick Add</button>
+</div>
+</div>
+<div class="text-center">
+<p class="font-label-sm text-secondary-fixed-variant uppercase tracking-widest mb-2">Essentials</p>
+<h3 class="font-headline-md text-body-lg mb-1 group-hover:text-tertiary transition-colors">Hand-Knit Cashmere Rollneck</h3>
+<p class="font-body-md text-primary">$2,100</p>
+</div>
+</div>
+<!-- Product Card 6 -->
+<div class="product-card group cursor-pointer">
+<div class="relative aspect-[4/5] overflow-hidden mb-6 bg-surface-container">
+<img class="w-full h-full object-cover transition-transform duration-700" data-alt="A striking image of a structured gold-toned metallic corset top paired with a flowing black silk skirt. The model is positioned in a dramatic, high-fashion pose within a brutalist concrete environment. The lighting is theatrical, with deep shadows and brilliant golden glints. The aesthetic combines industrial strength with delicate luxury. The color scheme is strictly gold, black, and concrete grey." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCv43O1WoqOB8rRpK0LuiiEj6PMZgAr2lvINRGcd7VyfNpokNKXsGrLyR_dGuQDk295XnsT5qxdv6QPShvbmnqsczvDh7bI1CP5KMcegHNDHYuogCzRHOhco3feuOnStUWVkA2BA85MtwzjsTSexcZ_uZ5cXDTkRBvTneEgGfpjxORSUV9hKASClYJzqp1oR1JrjTQyhm8OpPU8Tk-ZZUm0N9-bF10MCdTleWgvmVsGF8fF7e1ryz0"/>
+<div class="product-hover-overlay absolute inset-0 bg-black/5 flex items-end justify-center p-6 backdrop-blur-[2px]">
+<button class="w-full bg-white/90 py-4 text-label-sm uppercase tracking-widest hover:bg-primary hover:text-white transition-all duration-300">Quick Add</button>
+</div>
+<span class="absolute top-4 left-4 bg-tertiary text-white px-3 py-1 text-[10px] font-bold uppercase tracking-widest shadow-sm">Limited Run</span>
+</div>
+<div class="text-center">
+<p class="font-label-sm text-secondary-fixed-variant uppercase tracking-widest mb-2">Collections</p>
+<h3 class="font-headline-md text-body-lg mb-1 group-hover:text-tertiary transition-colors">The Gilded Bustier</h3>
+<p class="font-body-md text-primary">$4,900</p>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-section-gap flex items-center justify-center gap-4">
+<button class="w-12 h-12 flex items-center justify-center border border-outline-variant text-secondary hover:border-primary hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<div class="flex items-center gap-2">
+<button class="w-12 h-12 flex items-center justify-center border border-primary bg-primary text-white font-semibold">1</button>
+<button class="w-12 h-12 flex items-center justify-center border border-outline-variant text-secondary hover:border-primary hover:text-primary transition-all">2</button>
+<button class="w-12 h-12 flex items-center justify-center border border-outline-variant text-secondary hover:border-primary hover:text-primary transition-all">3</button>
+<span class="px-2 text-secondary">...</span>
+<button class="w-12 h-12 flex items-center justify-center border border-outline-variant text-secondary hover:border-primary hover:text-primary transition-all">12</button>
+</div>
+<button class="w-12 h-12 flex items-center justify-center border border-outline-variant text-secondary hover:border-primary hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Mobile Filter Drawer -->
+<div class="fixed inset-0 bg-black/40 opacity-0 pointer-events-none transition-opacity duration-500 z-[70] backdrop-blur-sm" id="filter-drawer-overlay" onclick="toggleFilter()"></div>
+<aside class="fixed inset-y-0 right-0 w-full max-w-md z-[80] bg-surface shadow-xl translate-x-full transition-transform duration-500 ease-in-out flex flex-col" id="filter-drawer">
+<div class="p-margin-mobile flex justify-between items-center border-b border-outline-variant">
+<h2 class="font-label-sm text-label-sm uppercase tracking-widest">Filters</h2>
+<button class="text-secondary hover:text-primary transition-colors" onclick="toggleFilter()">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+<div class="flex-grow overflow-y-auto p-margin-mobile space-y-10">
+<!-- Reuse sidebar components for mobile drawer if needed -->
+<div>
+<h3 class="font-label-sm text-label-sm uppercase tracking-widest mb-6 pb-2">Sort By</h3>
+<div class="grid grid-cols-1 gap-2">
+<button class="w-full text-left py-3 border-b border-outline-variant text-primary font-medium">Newest First</button>
+<button class="w-full text-left py-3 border-b border-outline-variant text-secondary">Price: High to Low</button>
+<button class="w-full text-left py-3 border-b border-outline-variant text-secondary">Price: Low to High</button>
+</div>
+</div>
+<!-- More filters... -->
+</div>
+<div class="p-margin-mobile border-t border-outline-variant grid grid-cols-2 gap-4">
+<button class="py-4 border border-outline text-label-sm uppercase tracking-widest">Clear All</button>
+<button class="py-4 bg-primary text-white text-label-sm uppercase tracking-widest">Show 248 Results</button>
+</div>
+</aside>
+<!-- Footer -->
+<footer class="w-full py-section-gap bg-surface-container-low border-t border-outline-variant">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-16">
+<div class="md:col-span-1">
+<span class="font-display-lg text-headline-lg text-primary mb-6 block">ELITE EDITIONS</span>
+<p class="text-body-md text-secondary-fixed-variant leading-relaxed">Defining the vanguard of luxury through architectural tailoring and sustainable heritage since 1994.</p>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm uppercase tracking-widest text-primary mb-8">The Atelier</h4>
+<ul class="space-y-4">
+<li><a class="text-secondary hover:text-tertiary transition-all" href="#">Bespoke Services</a></li>
+<li><a class="text-secondary hover:text-tertiary transition-all" href="#">Sustainability</a></li>
+<li><a class="text-secondary hover:text-tertiary transition-all" href="#">Craftsmanship</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm uppercase tracking-widest text-primary mb-8">Service</h4>
+<ul class="space-y-4">
+<li><a class="text-secondary hover:text-tertiary transition-all" href="#">Global Concierge</a></li>
+<li><a class="text-secondary hover:text-tertiary transition-all" href="#">Shipping &amp; Returns</a></li>
+<li><a class="text-secondary hover:text-tertiary transition-all" href="#">Care Guide</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm uppercase tracking-widest text-primary mb-8">Legacy</h4>
+<ul class="space-y-4">
+<li><a class="text-secondary hover:text-tertiary transition-all" href="#">Our Story</a></li>
+<li><a class="text-secondary hover:text-tertiary transition-all" href="#">Privacy Policy</a></li>
+<li><a class="text-secondary hover:text-tertiary transition-all" href="#">Terms of Use</a></li>
+</ul>
+</div>
+</div>
+<div class="pt-8 border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-label-sm text-label-sm text-secondary-fixed-variant">© 2024 ELITE EDITIONS. ARCHITECTED FOR PERFECTION.</p>
+<div class="flex gap-8">
+<a class="text-primary hover:opacity-70 transition-opacity" href="#"><span class="material-symbols-outlined" data-icon="public">public</span></a>
+<a class="text-primary hover:opacity-70 transition-opacity" href="#"><span class="material-symbols-outlined" data-icon="share">share</span></a>
+</div>
+</div>
+</div>
+</footer>
+<!-- Scripts for Interactions -->
+<script>
+        function toggleDrawer() {
+            const drawer = document.getElementById('drawer');
+            const overlay = document.getElementById('drawer-overlay');
+            drawer.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('opacity-0');
+            overlay.classList.toggle('pointer-events-none');
+            document.body.classList.toggle('overflow-hidden');
+        }
+
+        function toggleFilter() {
+            const filterDrawer = document.getElementById('filter-drawer');
+            const filterOverlay = document.getElementById('filter-drawer-overlay');
+            filterDrawer.classList.toggle('translate-x-full');
+            filterOverlay.classList.toggle('opacity-0');
+            filterOverlay.classList.toggle('pointer-events-none');
+            document.body.classList.toggle('overflow-hidden');
+        }
+
+        // Add subtle parallax to images on mouse move
+        document.querySelectorAll('.product-card').forEach(card => {
+            const img = card.querySelector('img');
+            card.addEventListener('mousemove', (e) => {
+                const { left, top, width, height } = card.getBoundingClientRect();
+                const x = (e.clientX - left) / width - 0.5;
+                const y = (e.clientY - top) / height - 0.5;
+                img.style.transform = `scale(1.08) translate(${x * 10}px, ${y * 10}px)`;
+            });
+            card.addEventListener('mouseleave', () => {
+                img.style.transform = 'scale(1) translate(0, 0)';
+            });
+        });
+    </script>
+</body></html>

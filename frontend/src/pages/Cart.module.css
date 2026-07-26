@@ -1,0 +1,163 @@
+.container {
+    width: 95%;
+    max-width: 1400px;
+    margin: 90px auto 40px;
+}
+
+.container h1 {
+    margin-bottom: 30px;
+    font-size: 32px;
+}
+
+/* Main Layout */
+.cartLayout {
+    display: grid;
+    grid-template-columns: 2fr 350px;
+    gap: 30px;
+    align-items: start;
+}
+
+/* Left Side */
+.cartItems {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Product Card */
+.card {
+    display: flex;
+    gap: 20px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,.08);
+}
+
+.card img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.info h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.info h3 {
+    font-size: 24px;
+    color: crimson;
+    margin-bottom: 20px;
+}
+
+/* Quantity */
+
+.quantity {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.quantity button {
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 6px;
+    background: #222;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.quantity span {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Remove */
+
+.removeBtn {
+    width: 120px;
+    height: 40px;
+    border: none;
+    border-radius: 6px;
+    background: crimson;
+    color: white;
+    cursor: pointer;
+}
+
+/* Right Side Summary */
+
+.summary {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,.08);
+    position: sticky;
+    top: 100px;
+}
+
+.summary h2 {
+    margin-bottom: 20px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+    font-size: 18px;
+}
+
+.checkoutBtn {
+    width: 100%;
+    margin-top: 20px;
+    height: 50px;
+    border: none;
+    background: #ff6b00;
+    color: white;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.checkoutBtn:hover {
+    background: #e65c00;
+}
+
+.emptyCart {
+    text-align: center;
+    margin-top: 80px;
+}
+
+/* Mobile */
+
+@media (max-width:900px){
+
+.cartLayout{
+    grid-template-columns:1fr;
+}
+
+.summary{
+    position: static;
+}
+
+.card{
+    flex-direction: column;
+}
+
+.card img{
+    width:100%;
+    height:250px;
+}
+
+}

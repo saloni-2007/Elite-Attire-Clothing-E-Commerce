@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>My Orders | ELITE EDITIONS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error": "#ffffff",
+                    "on-primary-container": "#7d8497",
+                    "on-secondary-fixed": "#1a1c1c",
+                    "on-tertiary-fixed-variant": "#574500",
+                    "secondary-fixed": "#e2e2e2",
+                    "surface-bright": "#fbf8fc",
+                    "secondary-container": "#e2e2e2",
+                    "error": "#ba1a1a",
+                    "primary": "#000000",
+                    "on-surface-variant": "#45464c",
+                    "on-secondary-container": "#636564",
+                    "on-tertiary-fixed": "#241a00",
+                    "on-secondary-fixed-variant": "#454747",
+                    "surface-dim": "#dcd9dd",
+                    "surface-container-highest": "#e4e1e6",
+                    "on-surface": "#1b1b1e",
+                    "secondary": "#5d5f5e",
+                    "surface-container-low": "#f6f2f7",
+                    "surface-container-high": "#eae7eb",
+                    "background": "#fbf8fc",
+                    "tertiary-fixed-dim": "#e9c349",
+                    "surface-container": "#f0edf1",
+                    "tertiary": "#735c00",
+                    "tertiary-fixed": "#ffe088",
+                    "surface-container-lowest": "#ffffff",
+                    "on-background": "#1b1b1e",
+                    "primary-container": "#141b2b",
+                    "primary-fixed-dim": "#c0c6db",
+                    "surface-tint": "#575e70",
+                    "on-error-container": "#93000a",
+                    "on-secondary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "surface": "#fbf8fc",
+                    "inverse-on-surface": "#f3f0f4",
+                    "on-primary-fixed": "#141b2b",
+                    "on-primary-fixed-variant": "#404758",
+                    "surface-variant": "#e4e1e6",
+                    "inverse-primary": "#c0c6db",
+                    "secondary-fixed-dim": "#c6c7c6",
+                    "outline-variant": "#c6c6cd",
+                    "outline": "#76777d",
+                    "on-primary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-container": "#cca830",
+                    "on-tertiary-container": "#4f3e00",
+                    "inverse-surface": "#303033",
+                    "primary-fixed": "#dce2f7"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "container-max": "1440px",
+                    "section-gap": "120px",
+                    "margin-desktop": "80px",
+                    "margin-mobile": "20px",
+                    "stack-sm": "8px",
+                    "gutter": "24px",
+                    "stack-lg": "32px",
+                    "stack-md": "16px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Playfair Display"],
+                    "headline-lg": ["Playfair Display"],
+                    "headline-md": ["Playfair Display"],
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "label-sm": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .order-card-hover:hover {
+            transform: translateY(-4px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-entry {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-sm h-20">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop h-full flex justify-between items-center">
+<div class="flex items-center gap-stack-md">
+<button class="p-2 hover:opacity-70 transition-opacity">
+<span class="material-symbols-outlined text-primary">menu</span>
+</button>
+</div>
+<h1 class="font-display-lg text-display-lg-mobile md:text-[32px] tracking-[0.2em] text-primary">ELITE EDITIONS</h1>
+<div class="flex items-center gap-stack-md">
+<button class="p-2 hover:opacity-70 transition-opacity">
+<span class="material-symbols-outlined text-primary">shopping_bag</span>
+</button>
+</div>
+</div>
+</header>
+<main class="pt-32 pb-section-gap min-h-screen">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<!-- Page Header -->
+<section class="mb-stack-lg animate-entry" style="animation-delay: 0.1s;">
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-2">Private Client Portfolio</p>
+<h2 class="font-headline-lg text-headline-lg md:text-display-lg-mobile text-primary">My Orders</h2>
+</section>
+<!-- Order Grid / Bento Style -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Sidebar Summary (Bento Piece) -->
+<aside class="lg:col-span-3 space-y-gutter animate-entry" style="animation-delay: 0.2s;">
+<div class="bg-surface-container-lowest p-stack-lg border border-outline-variant rounded-lg">
+<div class="flex items-center gap-stack-md mb-stack-md">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-secondary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">person</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-primary leading-none">Jameson V.</h3>
+<p class="text-label-sm text-secondary uppercase tracking-tighter mt-1">Tier: Sovereign</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="text-primary font-bold border-b border-primary pb-1 w-fit transition-all" href="#">Account</a>
+<a class="text-secondary hover:text-primary transition-colors py-1" href="#">Order History</a>
+<a class="text-secondary hover:text-primary transition-colors py-1" href="#">Concierge</a>
+<a class="text-secondary hover:text-primary transition-colors py-1" href="#">The Atelier</a>
+</nav>
+</div>
+<div class="bg-primary text-on-primary p-stack-lg rounded-lg shadow-xl relative overflow-hidden">
+<div class="relative z-10">
+<p class="font-label-sm uppercase tracking-widest opacity-70 mb-4">Current Transit</p>
+<h4 class="font-headline-md mb-2">Edition #8821</h4>
+<p class="text-body-md opacity-90 mb-6">Arriving via Private Courier in 2 days.</p>
+<button class="w-full py-3 bg-white text-primary font-label-sm uppercase tracking-widest hover:bg-secondary-fixed transition-colors">
+                                Track Shipment
+                            </button>
+</div>
+<!-- Decorative element -->
+<div class="absolute -right-10 -bottom-10 w-32 h-32 border-4 border-white/10 rounded-full"></div>
+</div>
+</aside>
+<!-- Order List Content -->
+<div class="lg:col-span-9 space-y-gutter animate-entry" style="animation-delay: 0.3s;">
+<!-- Filters -->
+<div class="flex items-center justify-between border-b border-outline-variant pb-stack-md overflow-x-auto gap-stack-lg">
+<div class="flex gap-stack-lg">
+<button class="font-label-sm text-label-sm uppercase tracking-widest text-primary border-b-2 border-primary pb-2">All Orders</button>
+<button class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary pb-2 transition-colors">In Transit</button>
+<button class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary pb-2 transition-colors">Delivered</button>
+</div>
+<div class="hidden md:flex items-center gap-stack-sm text-secondary">
+<span class="material-symbols-outlined text-[20px]">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-label-sm uppercase tracking-widest placeholder:text-outline" placeholder="Search orders..." type="text"/>
+</div>
+</div>
+<!-- Order Card 1: Processing -->
+<div class="group bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden order-card-hover transition-all">
+<div class="p-6 md:p-8">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+<div class="flex flex-wrap gap-x-gutter gap-y-2">
+<div>
+<p class="text-label-sm text-secondary uppercase tracking-widest">Order ID</p>
+<p class="font-headline-md text-primary mt-1">#EE-992-012</p>
+</div>
+<div>
+<p class="text-label-sm text-secondary uppercase tracking-widest">Date Placed</p>
+<p class="font-body-md text-primary mt-1">October 24, 2024</p>
+</div>
+<div>
+<p class="text-label-sm text-secondary uppercase tracking-widest">Amount</p>
+<p class="font-body-md text-primary mt-1">$4,820.00</p>
+</div>
+</div>
+<div>
+<span class="inline-flex items-center px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm uppercase tracking-widest">
+<span class="w-2 h-2 rounded-full bg-tertiary mr-2"></span>
+                                        Processing
+                                    </span>
+</div>
+</div>
+<!-- Product Preview Section -->
+<div class="flex items-center gap-stack-lg border-t border-outline-variant/30 pt-8">
+<div class="flex -space-x-4">
+<div class="w-20 h-28 bg-surface-container-high rounded overflow-hidden border border-white/50 shadow-sm transition-transform group-hover:scale-105 duration-500">
+<img class="w-full h-full object-cover" data-alt="Close up of a luxury bespoke charcoal wool overcoat with intricate hand-stitched detailing, captured in high-end studio lighting with a neutral, sophisticated grey background. The texture of the premium fabric is highly visible, emphasizing quality and modern minimalism." src="https://lh3.googleusercontent.com/aida-public/AB6AXuASCf4IWgEQGu4B46YxvYQhDgtrIcLO_hGetz7nJI2DkC4Y60R1_qALQ_AznchOb0wDHP2CGJVMMYqcGFZoVFf_3683MV7lg63T5a83ME93PfW0Kfx7uAvB5lES8WRSwaLc9XrZndB0n-UCxccOonqcKPy0dfksGmyVIgqjVl1N1Zf_O9Ee0nC48zGk_Fu5fmMYw2lAnU6kzMunodlja2HqO54zigcaH9p_vpMABPb4Gl5qKPDaY3o"/>
+</div>
+<div class="w-20 h-28 bg-surface-container-high rounded overflow-hidden border border-white/50 shadow-sm transition-transform group-hover:scale-105 duration-500 delay-75">
+<img class="w-full h-full object-cover" data-alt="A pair of minimalist premium white leather sneakers displayed on a clean architectural pedestal. Soft cinematic lighting highlights the clean lines and refined silhouette of the shoes, set against a bright, airy gallery-style environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXMoMNELyESkNvySE6PCszy0DjNSBUPTlTXyaWEMnHCcceRXzFimNHb9keszq88CY1tGhYD-LmgmBaGrBKgwXqAxSJHNV_Gq8FZZ3zc3bpp0USRS0jn9IJmpCNsfyVUW7lR39EhR1kIdijw7KD7SeVtKVtt-NXHbHc83sbfDd-hp65v5qUGM78BKn2dolzHC1O2tk3yX0Lrg-s2Eo-k0nzloN4RO2zut0gXvTM1Xf-K-zBayA-Qv0"/>
+</div>
+<div class="w-20 h-28 bg-surface-container-high rounded-full flex items-center justify-center border border-white/50 shadow-sm text-secondary bg-white text-label-sm">
+                                        +2
+                                    </div>
+</div>
+<div class="flex-1">
+<p class="text-body-md text-primary font-medium">Bespoke Atelier Collection</p>
+<p class="text-label-sm text-secondary mt-1">4 items total</p>
+</div>
+<button class="flex items-center gap-2 group/btn text-primary font-label-sm uppercase tracking-widest">
+                                    View Details
+                                    <span class="material-symbols-outlined transition-transform group-hover/btn:translate-x-1">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Order Card 2: Delivered -->
+<div class="group bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden order-card-hover transition-all">
+<div class="p-6 md:p-8">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+<div class="flex flex-wrap gap-x-gutter gap-y-2">
+<div>
+<p class="text-label-sm text-secondary uppercase tracking-widest">Order ID</p>
+<p class="font-headline-md text-primary mt-1">#EE-881-994</p>
+</div>
+<div>
+<p class="text-label-sm text-secondary uppercase tracking-widest">Date Placed</p>
+<p class="font-body-md text-primary mt-1">September 12, 2024</p>
+</div>
+<div>
+<p class="text-label-sm text-secondary uppercase tracking-widest">Amount</p>
+<p class="font-body-md text-primary mt-1">$2,150.00</p>
+</div>
+</div>
+<div>
+<span class="inline-flex items-center px-4 py-1.5 rounded-full bg-surface-container-high text-secondary font-label-sm uppercase tracking-widest">
+<span class="w-2 h-2 rounded-full bg-on-secondary-container mr-2 opacity-40"></span>
+                                        Delivered
+                                    </span>
+</div>
+</div>
+<div class="flex items-center gap-stack-lg border-t border-outline-variant/30 pt-8">
+<div class="w-20 h-28 bg-surface-container-high rounded overflow-hidden border border-white/50 shadow-sm transition-transform group-hover:scale-105 duration-500">
+<img class="w-full h-full object-cover" data-alt="A luxury silk scarf with a deep emerald green and gold geometric pattern, draped elegantly over a marble surface. The lighting is moody and dramatic, focusing on the shimmer of the silk fabric and the richness of the colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcfn5M1fbHAQkqncYzigkWbSI3v41dVIydyt9grgenIgzVnpw7ltw-DclRw-dtUVopQVGvzqfCmaDzuTPGTwK_4EbKijPodY8gfWaW6dWto7Ds-sF7p0iPvb_rCdY4H-kOr12DBZvGD6jxZ2lWUfvank9kHIELba3QJaxevkJ-pUoj8EWwfhSQhO60ea2CMmBMc0C6qLSIsbONBCahOfN0APdPEbAfGHXDDq2g8NxyBBc8zuQ9ipU"/>
+</div>
+<div class="flex-1">
+<p class="text-body-md text-primary font-medium">Heritage Silk Collection - Limited</p>
+<p class="text-label-sm text-secondary mt-1">1 item total</p>
+</div>
+<button class="flex items-center gap-2 group/btn text-primary font-label-sm uppercase tracking-widest">
+                                    View Details
+                                    <span class="material-symbols-outlined transition-transform group-hover/btn:translate-x-1">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Order Card 3: In Transit -->
+<div class="group bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden order-card-hover transition-all">
+<div class="p-6 md:p-8">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+<div class="flex flex-wrap gap-x-gutter gap-y-2">
+<div>
+<p class="text-label-sm text-secondary uppercase tracking-widest">Order ID</p>
+<p class="font-headline-md text-primary mt-1">#EE-905-228</p>
+</div>
+<div>
+<p class="text-label-sm text-secondary uppercase tracking-widest">Date Placed</p>
+<p class="font-body-md text-primary mt-1">October 19, 2024</p>
+</div>
+<div>
+<p class="text-label-sm text-secondary uppercase tracking-widest">Amount</p>
+<p class="font-body-md text-primary mt-1">$9,400.00</p>
+</div>
+</div>
+<div>
+<span class="inline-flex items-center px-4 py-1.5 rounded-full bg-primary-container text-on-primary-container font-label-sm uppercase tracking-widest">
+<span class="w-2 h-2 rounded-full bg-blue-400 mr-2 animate-pulse"></span>
+                                        In Transit
+                                    </span>
+</div>
+</div>
+<div class="flex items-center gap-stack-lg border-t border-outline-variant/30 pt-8">
+<div class="flex -space-x-4">
+<div class="w-20 h-28 bg-surface-container-high rounded overflow-hidden border border-white/50 shadow-sm transition-transform group-hover:scale-105 duration-500">
+<img class="w-full h-full object-cover" data-alt="An exquisite high-end minimalist wristwatch with a thin gold frame and a black leather strap, presented in a velvet-lined luxury watch box. The composition is clean and focused, reflecting high-worth status and timeless elegance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjK28t6UrptYnQl-zkpsOEM4qwmH2zeO6Ypj0Z6ovHkJkopKh1z0ImZ5ALfQF6RgLq3VXkGfvPypD1mC4c2WvSfLIggiP4s1RT7LdxlAskWwOOpmfr5m2CSfZR3gBY7bwmXHmpqeVz1kbcI2QmGeQtorgongv9Fhjuvt1uz-fgxMTNj08l_D9iUI4CNgyId_zwERGUn8Z_-cilk2CWFunY00jYqEToBVXGqeJgKJssYfOdmVqwsDg"/>
+</div>
+<div class="w-20 h-28 bg-surface-container-high rounded overflow-hidden border border-white/50 shadow-sm transition-transform group-hover:scale-105 duration-500 delay-75">
+<img class="w-full h-full object-cover" data-alt="A pair of premium dark navy tailored trousers made from high-grade wool, folded perfectly on a clean glass table. Soft natural light flows into the room, creating an atmosphere of quiet luxury and impeccable style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxh90S1cJKb6CdP4lze5OK-eso4xi5V94TXJZyIV0lEZz6SKObc8vKnTYgPpVBLAeN5RbjTBDcVIn2ZQQxjrbJTcRMHaRe3p54gVVuOh6vKjDqFhTjwVI1w68Yp-rvEl0HopDOshMIGNz6Bt0rVejRik2k69e-PYXr2OSxpJuNJBzPbM1TDfSl7RUMplbfTawF2WqVDfhZ1zMCfP5DQEHHqhwVaD01hpyGB_cyhUfaieDqFyePgS0"/>
+</div>
+</div>
+<div class="flex-1">
+<p class="text-body-md text-primary font-medium">Autumn Equinox Selection</p>
+<p class="text-label-sm text-secondary mt-1">2 items total</p>
+</div>
+<button class="flex items-center gap-2 group/btn text-primary font-label-sm uppercase tracking-widest">
+                                    View Details
+                                    <span class="material-symbols-outlined transition-transform group-hover/btn:translate-x-1">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Pagination / Load More -->
+<div class="pt-section-gap flex justify-center">
+<button class="px-12 py-4 border border-outline text-primary font-label-sm uppercase tracking-[0.2em] hover:bg-primary hover:text-white transition-all duration-500">
+                            View Older Orders
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-section-gap bg-surface-container-low border-t border-outline-variant">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="md:col-span-2">
+<h3 class="font-display-lg text-display-lg-mobile text-primary mb-stack-md">ELITE EDITIONS</h3>
+<p class="text-body-md text-secondary max-w-sm mb-stack-lg">Architected for those who demand perfection. A singular destination for the global elite.</p>
+<p class="font-label-sm text-secondary uppercase tracking-widest">© 2024 ELITE EDITIONS. ARCHITECTED FOR PERFECTION.</p>
+</div>
+<div>
+<h4 class="font-label-sm text-primary uppercase tracking-widest mb-stack-md">The Maison</h4>
+<ul class="flex flex-col gap-2">
+<li><a class="text-secondary hover:text-tertiary transition-all" href="#">The Atelier</a></li>
+<li><a class="text-secondary hover:text-tertiary transition-all" href="#">Heritage</a></li>
+<li><a class="text-secondary hover:text-tertiary transition-all" href="#">Sustainability</a></li>
+<li><a class="text-secondary hover:text-tertiary transition-all" href="#">Global Concierge</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-sm text-primary uppercase tracking-widest mb-stack-md">Legal</h4>
+<ul class="flex flex-col gap-2">
+<li><a class="text-secondary hover:text-tertiary transition-all" href="#">Privacy Policy</a></li>
+<li><a class="text-secondary hover:text-tertiary transition-all" href="#">Terms of Service</a></li>
+<li><a class="text-secondary hover:text-tertiary transition-all" href="#">Accessibility</a></li>
+</ul>
+</div>
+</div>
+</footer>
+<script>
+        // Simple scroll behavior for header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-md');
+                header.classList.remove('shadow-sm');
+            } else {
+                header.classList.add('shadow-sm');
+                header.classList.remove('shadow-md');
+            }
+        });
+
+        // Add staggered animation delay to order cards
+        document.querySelectorAll('.order-card-hover').forEach((el, index) => {
+            el.style.animationDelay = `${(index + 3) * 0.1}s`;
+            el.classList.add('animate-entry');
+        });
+    </script>
+</body></html>

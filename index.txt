@@ -1,0 +1,324 @@
+Backend Libraries:
+
+mongoose (For dealing with database)
+
+express (For making server)
+
+dotenv (For accessing varaibles of .env file)
+
+cors (For allowing backend to accept request from out frontend)
+
+nodemon (For restarting server whenever code changes)
+
+ 
+
+Command:
+
+npm i express mongoose cors dotenv nodemon
+
+ 
+
+Task 1:
+Create structure of tables of E-COMMERCE project db and api structure
+Users:
+{
+    name: String,
+    email: String,
+    password: String,
+    role: ["admin","user"]
+}
+Products:
+{
+   Product Name : String,
+   Description : String,
+   Price : Number,
+   Category : String,
+   Brand : String,
+   Stock : Number,
+   Image : String
+}
+
+Categories:
+{
+  Category Name : String,
+  Description : String
+}
+
+
+Cart:
+{
+  User ID : ObjectId,
+  Product ID : ObjectId,
+  Quantity : Number
+}
+
+
+Orders:
+{
+  User ID : ObjectId,
+  Total Amount : Number,
+  Order Status : ["Pending", "Shipped", "Delivered", "Cancelled"],
+  Payment Status : ["Pending", "Success", "Failed"],
+  Shipping Address : String,
+  Order Date : Date
+}
+
+Order Items
+{
+  Order ID : ObjectId,
+  Product ID : ObjectId,
+  Quantity : Number,
+  Price : Number
+}
+Coupons:
+{
+CouponCode : String,
+Discount : Number,
+MinimumAmount : Number,
+ExpiryDate : Date,
+Status : Boolean
+}
+
+Payments:
+{
+    Order ID : ObjectId,
+    Payment Method : String,
+    Transaction ID : String,
+    Amount : Number,
+    Payment Status : ["Pending", "Success", "Failed"]
+}
+
+Reviews:
+{
+   User ID : ObjectId,
+   Product ID : ObjectId,
+   Rating : Number,
+   Review : String
+}
+
+Wishlist:
+{
+    Product Name:String,
+    User ID : ObjectId,
+    Product ID : ObjectId
+}
+
+Address:
+{
+   User ID : ObjectId,
+   Full Name : String,
+   Mobile Number : String,
+   Address Line : String,
+    City : String,
+   State : String,
+   Pincode : Number,
+   Country : String
+}
+
+Shipping:
+{
+  OrderId : ObjectId,
+  TrackingNumber : String,
+  CourierName : String,
+  DeliveryDate : Date,
+  ShippingStatus : ["Packed","Shipped","Out for Delivery","Delivered"]
+}
+
+Returns:
+{
+  OrderId : ObjectId,
+  ProductId : ObjectId,
+  Reason : String,
+  Status : ["Pending","Approved","Rejected"]
+}
+Inventory:
+{
+  ProductId : ObjectId
+  AvailableStock : Number
+  SoldStock : Number
+  LastUpdated : Date
+}
+API Structure:
+
+Authentication APIs:
+
+/register – that will used to register User
+/login –  that will used to login User
+/logout –  that will used to logout User
+/forgot-password – Send password reset link or OTP to the user's email.
+/reset-password –  that will be used to Reset Password using OTP
+/change-password – Change password after login
+/profile – Get logged-in user's profile details.
+/update-profile – Update user's Profile information
+
+
+Product APIs:
+
+/products – Get all  available products
+/product/:id – Get Single Product
+/add-product – Add  a new product
+/update-product/:id – Update product details
+/delete-product/:id – Delete Product
+
+
+Category APIs:
+
+/categories – Get All Categories
+/add-category – Add Category
+/update-category/:id – Update Category
+/delete-category/:id – Delete Category
+
+Cart APIs:
+
+/cart – Get User Cart
+/add-to-cart – Add Product to Cart
+/update-cart – Update Cart
+/remove-from-cart/:id – Remove Product from Cart
+/clear-cart – Clear Cart
+
+Order APIs:
+
+/place-order – Place Order
+/orders – Get All Orders
+/order/:id – Get Single Order
+/cancel-order/:id – Cancel Order
+/update-order-status/:id – Update Order Status
+
+Payment APIs:
+
+/payment – Make Payment
+/payment-status/:id – Get Payment Status
+
+Review APIs:
+
+/add-review – Add Review
+/reviews/:productId – Get Product Reviews
+/update-review/:id – Update Review
+/delete-review/:id – Delete Review
+
+Wishlist APIs:
+
+/wishlist – Get Wishlist:
+
+/add-to-wishlist – Add Product to Wishlist
+/remove-from-wishlist/:id – Remove Product from Wishlist
+
+Address APIs:
+
+/addresses – Get All Addresses
+/add-address – Add Address
+/update-address/:id – Update Address
+/delete-address/:id – Delete Address
+
+
+
+models:
+database tables
+
+user:
+{
+  name: S
+}
+
+/
+
+
+categoryRoutes:all routes related to managing category
+GET:/
+
+
+
+
+orderRoutes: All routes related to order
+GET"/all: get all order of a customer/user.(only access to admin)
+Get :/user-orders: get all orders for current login users(user must be login  )
+POST:/Create : used to create order.(user must be login)
+put:/update-status:used to  update order status(only access by admin)
+
+
+
+
+
+
+
+
+
+
+fronted 
+
+Create a modern, responsive, and professional website UI with a clean and premium look.
+Design Style:
+Minimalist and elegant
+Soft shadows and rounded corners (12–16px)
+Modern typography (Poppins, Inter, or Manrope)
+Smooth animations and hover effects
+Mobile-first responsive design
+Light theme with white background and primary color #FF6B00 (orange) and secondary color #1E293B (dark blue)
+Layout:
+1. Hero Section
+Full-width banner
+Large heading
+Short description
+Two CTA buttons (Get Started & Learn More)
+Modern illustration/image on the right
+2. Features Section
+3–6 feature cards
+Icons
+Title
+Short description
+Hover animation
+3. About Section
+Two-column layout
+Image on left
+Content on right
+Statistics cards
+4. Services Section
+Responsive card grid
+Service icon
+Service title
+Description
+Read More button
+5. Testimonials
+Customer photo
+Name
+Rating stars
+Review
+Carousel slider
+6. Pricing Section
+Three pricing cards
+Highlight the recommended plan
+Monthly/Yearly toggle
+7. FAQ
+Accordion style
+Smooth expand/collapse animation
+8. Contact Section
+Contact form
+Google Map placeholder
+Email
+Phone
+Social icons
+9. Footer
+Logo
+Quick links
+Services
+Newsletter subscription
+Social media icons
+Copyright
+UI Requirements
+Glassmorphism for cards
+Gradient buttons
+Smooth scrolling
+Sticky navigation
+Dark mode toggle
+Loading animations
+Accessible color contrast
+SEO-friendly structure
+Optimized for desktop, tablet, and mobile
+Technology (if generating code)
+React + Next.js
+Tailwind CSS
+Framer Motion animations
+Lucide Icons
+Responsive design
+Clean, reusable components
+Modern folder structure

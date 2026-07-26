@@ -1,0 +1,171 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.about-page {
+  font-family: Arial, sans-serif;
+}
+
+.hero {
+  height: 60vh;
+  background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
+  url("https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1500");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-content {
+  color: white;
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 60px;
+}
+
+.hero-content p {
+  font-size: 22px;
+  margin-top: 15px;
+}
+
+
+
+.about-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  padding: 80px 10%;
+  flex-wrap: wrap;
+}
+
+.about-image img {
+  width: 450px;
+  border-radius: 15px;
+}
+
+.about-text {
+  max-width: 550px;
+}
+
+.about-text h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.about-text span {
+  color: crimson;
+  font-weight: bold;
+}
+
+.about-text p {
+  line-height: 30px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.about-text button {
+  padding: 15px 35px;
+  border: none;
+  background: black;
+  color: white;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: .4s;
+}
+
+.about-text button:hover {
+  background: crimson;
+}
+
+
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap: 25px;
+  padding: 70px 10%;
+}
+
+.card {
+  background: white;
+  text-align: center;
+  padding: 35px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,.15);
+  transition: .3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card i {
+  font-size: 45px;
+  color: crimson;
+  margin-bottom: 20px;
+}
+
+.card h3 {
+  margin-bottom: 10px;
+}
+
+
+.stats {
+  background: #111;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 70px 20px;
+  text-align: center;
+}
+
+.stats h2 {
+  color: crimson;
+  font-size: 45px;
+}
+
+.stats p {
+  margin-top: 10px;
+}
+
+
+
+footer {
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 30px;
+}
+
+footer h2 {
+  margin-bottom: 10px;
+}
+
+
+
+@media(max-width:768px){
+
+.hero-content h1{
+font-size:40px;
+}
+
+.about-image img{
+width:100%;
+}
+
+.about-text h2{
+font-size:32px;
+}
+
+.stats{
+gap:30px;
+}
+
+}

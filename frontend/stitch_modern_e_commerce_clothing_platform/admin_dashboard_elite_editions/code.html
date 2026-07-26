@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ELITE EDITIONS | Concierge Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error": "#ffffff",
+                    "on-primary-container": "#7d8497",
+                    "on-secondary-fixed": "#1a1c1c",
+                    "on-tertiary-fixed-variant": "#574500",
+                    "secondary-fixed": "#e2e2e2",
+                    "surface-bright": "#fbf8fc",
+                    "secondary-container": "#e2e2e2",
+                    "error": "#ba1a1a",
+                    "primary": "#000000",
+                    "on-surface-variant": "#45464c",
+                    "on-secondary-container": "#636564",
+                    "on-tertiary-fixed": "#241a00",
+                    "on-secondary-fixed-variant": "#454747",
+                    "surface-dim": "#dcd9dd",
+                    "surface-container-highest": "#e4e1e6",
+                    "on-surface": "#1b1b1e",
+                    "secondary": "#5d5f5e",
+                    "surface-container": "#f0edf1",
+                    "tertiary": "#735c00",
+                    "tertiary-fixed": "#ffe088",
+                    "surface-container-lowest": "#ffffff",
+                    "on-background": "#1b1b1e",
+                    "primary-container": "#141b2b",
+                    "primary-fixed-dim": "#c0c6db",
+                    "surface-tint": "#575e70",
+                    "on-error-container": "#93000a",
+                    "on-secondary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "surface": "#fbf8fc",
+                    "inverse-on-surface": "#f3f0f4",
+                    "on-primary-fixed": "#141b2b",
+                    "on-primary-fixed-variant": "#404758",
+                    "surface-variant": "#e4e1e6",
+                    "inverse-primary": "#c0c6db",
+                    "secondary-fixed-dim": "#c6c7c6",
+                    "outline-variant": "#c6c6cd",
+                    "outline": "#76777d",
+                    "on-primary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-container": "#cca830",
+                    "on-tertiary-container": "#4f3e00",
+                    "inverse-surface": "#303033",
+                    "primary-fixed": "#dce2f7"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "container-max": "1440px",
+                    "section-gap": "120px",
+                    "margin-desktop": "80px",
+                    "margin-mobile": "20px",
+                    "stack-sm": "8px",
+                    "gutter": "24px",
+                    "stack-lg": "32px",
+                    "stack-md": "16px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Playfair Display"],
+                    "headline-lg": ["Playfair Display"],
+                    "headline-md": ["Playfair Display"],
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "label-sm": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #fbf8fc;
+            color: #1b1b1e;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-nav-border {
+            position: relative;
+        }
+        .active-nav-border::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #000000;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #e4e1e6;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="font-body-md overflow-x-hidden selection:bg-tertiary-fixed selection:text-on-tertiary-container">
+<!-- Top Navigation Bar (Platform Anchor) -->
+<header class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-sm h-20 flex justify-between items-center px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="flex items-center gap-stack-md">
+<span class="material-symbols-outlined text-primary text-2xl cursor-pointer hover:opacity-70 transition-opacity">menu</span>
+<h1 class="font-display-lg text-display-lg-mobile md:text-headline-md tracking-[0.2em] text-primary">ELITE EDITIONS</h1>
+</div>
+<div class="flex items-center gap-stack-lg">
+<div class="hidden md:flex gap-stack-lg items-center text-label-sm uppercase tracking-widest text-secondary">
+<span class="text-primary font-semibold border-b border-primary pb-1">Analytics</span>
+<span class="hover:text-primary transition-colors cursor-pointer">Inventory</span>
+<span class="hover:text-primary transition-colors cursor-pointer">CRM</span>
+</div>
+<div class="flex items-center gap-stack-md">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-70 transition-opacity">search</span>
+<div class="relative">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-70 transition-opacity">shopping_bag</span>
+<span class="absolute -top-1 -right-1 bg-tertiary text-[8px] text-white w-3 h-3 rounded-full flex items-center justify-center">2</span>
+</div>
+<div class="w-8 h-8 bg-surface-container rounded-full overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A professional close-up headshot of a luxury concierge manager in a sharp tailored black suit, set against a blurred minimalist architectural background with neutral tones and soft natural lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBh0rX7bKhI0E9UL54_3DarNC7O4PzUcIVYkcf6LoKI0mNtK7GSN88LsIHHOkaO3nVC-VZK-WM4g--5mY96ZXUnZk8jw8xVBSGYLCslpL-FQTfsB6teDU_8meDfCHUXALocVzAY3-UmPOMvoRT9Q_RQdHByGRrkcNbrw1i5SlOh0TQ8boDUOWlxNKxFB_PoP4xQelCNpkgP8loKTNxNP4zrbLgFXmwfuU4PIIGm1TWUsbfa75-2ws8"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Layout Container -->
+<div class="flex pt-20 min-h-screen">
+<!-- Sidebar Navigation (Mandatory Content) -->
+<aside class="hidden md:flex flex-col w-80 bg-surface fixed inset-y-0 left-0 pt-20 z-40 border-r border-outline-variant">
+<nav class="flex flex-col p-stack-lg gap-stack-lg h-full overflow-y-auto custom-scrollbar">
+<div class="mb-stack-lg">
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-stack-md px-2">The Curation</p>
+<ul class="space-y-2">
+<li class="flex items-center gap-4 p-3 rounded-lg bg-primary-container text-white cursor-pointer transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-label-sm uppercase tracking-widest">Dashboard</span>
+</li>
+<li class="flex items-center gap-4 p-3 rounded-lg text-secondary hover:bg-surface-container transition-all cursor-pointer">
+<span class="material-symbols-outlined">flare</span>
+<span class="font-label-sm uppercase tracking-widest">New Arrivals</span>
+</li>
+<li class="flex items-center gap-4 p-3 rounded-lg text-secondary hover:bg-surface-container transition-all cursor-pointer">
+<span class="material-symbols-outlined">straighten</span>
+<span class="font-label-sm uppercase tracking-widest">Bespoke</span>
+</li>
+</ul>
+</div>
+<div class="mb-stack-lg">
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-stack-md px-2">Operations</p>
+<ul class="space-y-2">
+<li class="flex items-center gap-4 p-3 rounded-lg text-secondary hover:bg-surface-container transition-all cursor-pointer">
+<span class="material-symbols-outlined">history_edu</span>
+<span class="font-label-sm uppercase tracking-widest">Heritage Orders</span>
+</li>
+<li class="flex items-center gap-4 p-3 rounded-lg text-secondary hover:bg-surface-container transition-all cursor-pointer">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm uppercase tracking-widest">Client Portal</span>
+</li>
+<li class="flex items-center gap-4 p-3 rounded-lg text-secondary hover:bg-surface-container transition-all cursor-pointer">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-sm uppercase tracking-widest">Settings</span>
+</li>
+</ul>
+</div>
+<div class="mt-auto p-4 bg-surface-container-low rounded-xl">
+<p class="font-label-sm text-[10px] text-tertiary mb-1">PREMIUM TIER</p>
+<p class="font-headline-md text-sm text-primary mb-2">Concierge Support</p>
+<button class="w-full py-2 bg-primary text-white text-[10px] uppercase tracking-tighter font-bold hover:opacity-80 transition-opacity">Request Briefing</button>
+</div>
+</nav>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-80 px-margin-mobile md:px-margin-desktop py-stack-lg bg-background">
+<!-- Page Header -->
+<div class="mb-section-gap">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-stack-md mb-stack-lg">
+<div>
+<p class="font-label-sm text-tertiary uppercase tracking-[0.3em] mb-2">Executive Summary</p>
+<h2 class="font-display-lg text-headline-lg md:text-display-lg text-primary">PERFORMANCE</h2>
+</div>
+<div class="flex gap-stack-sm">
+<button class="px-6 py-3 border border-outline text-label-sm uppercase tracking-widest hover:bg-surface-container transition-colors">Export Ledger</button>
+<button class="px-6 py-3 bg-primary text-white text-label-sm uppercase tracking-widest hover:opacity-80 transition-opacity">Generate Report</button>
+</div>
+</div>
+<!-- Bento Metrics Grid -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="p-stack-lg bg-surface-container-lowest shadow-sm border border-outline-variant hover:shadow-md transition-shadow group">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary">payments</span>
+<span class="text-tertiary font-bold text-xs">+12.4%</span>
+</div>
+<p class="font-label-sm text-secondary uppercase tracking-widest mb-1">Total Sales</p>
+<p class="font-display-lg text-headline-md text-primary">$428,900.00</p>
+</div>
+<div class="p-stack-lg bg-surface-container-lowest shadow-sm border border-outline-variant hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary">shopping_cart</span>
+<span class="text-tertiary font-bold text-xs">+5.2%</span>
+</div>
+<p class="font-label-sm text-secondary uppercase tracking-widest mb-1">Order Count</p>
+<p class="font-display-lg text-headline-md text-primary">1,240</p>
+</div>
+<div class="p-stack-lg bg-surface-container-lowest shadow-sm border border-outline-variant hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary">analytics</span>
+<span class="text-tertiary font-bold text-xs">+8.1%</span>
+</div>
+<p class="font-label-sm text-secondary uppercase tracking-widest mb-1">Avg. Order Value</p>
+<p class="font-display-lg text-headline-md text-primary">$345.88</p>
+</div>
+<div class="p-stack-lg bg-surface-container-lowest shadow-sm border border-outline-variant hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary">group</span>
+<span class="text-tertiary font-bold text-xs">+2.4%</span>
+</div>
+<p class="font-label-sm text-secondary uppercase tracking-widest mb-1">Active Clients</p>
+<p class="font-display-lg text-headline-md text-primary">8,432</p>
+</div>
+</div>
+</div>
+<!-- Visualization Section -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter mb-section-gap">
+<div class="lg:col-span-2 bg-surface-container-lowest p-stack-lg border border-outline-variant relative overflow-hidden h-[400px]">
+<div class="relative z-10">
+<h3 class="font-headline-md text-primary mb-2">Revenue Velocity</h3>
+<p class="font-body-md text-secondary text-sm">Hourly transaction flow across global regions.</p>
+</div>
+
+<div class="absolute bottom-10 left-10 right-10 flex justify-between items-end h-32">
+<!-- Mockup Graph bars -->
+<div class="w-8 bg-primary h-[40%]"></div>
+<div class="w-8 bg-primary h-[60%]"></div>
+<div class="w-8 bg-primary h-[55%]"></div>
+<div class="w-8 bg-tertiary h-[90%]"></div>
+<div class="w-8 bg-primary h-[70%]"></div>
+<div class="w-8 bg-primary h-[85%]"></div>
+<div class="w-8 bg-primary h-[45%]"></div>
+</div>
+</div>
+<div class="bg-primary p-stack-lg text-white flex flex-col justify-between">
+<div>
+<h3 class="font-display-lg text-headline-md mb-2">Heritage Sales</h3>
+<p class="font-body-md text-surface-variant opacity-80 text-sm">Exclusive collection performance this fiscal quarter.</p>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between border-b border-surface-variant/20 pb-2">
+<span class="font-label-sm">Bespoke Suits</span>
+<span class="font-bold">65%</span>
+</div>
+<div class="flex justify-between border-b border-surface-variant/20 pb-2">
+<span class="font-label-sm">Timepieces</span>
+<span class="font-bold">22%</span>
+</div>
+<div class="flex justify-between border-b border-surface-variant/20 pb-2">
+<span class="font-label-sm">Accessories</span>
+<span class="font-bold">13%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Orders Section -->
+<section class="mb-section-gap">
+<div class="flex justify-between items-center mb-stack-lg">
+<h3 class="font-headline-md text-primary">Recent Acquisitions</h3>
+<a class="text-label-sm text-secondary hover:text-primary transition-colors flex items-center gap-1" href="#">View All <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant text-label-sm uppercase tracking-widest text-secondary">
+<th class="pb-4 font-semibold px-2">Order ID</th>
+<th class="pb-4 font-semibold">Client</th>
+<th class="pb-4 font-semibold">Product</th>
+<th class="pb-4 font-semibold">Status</th>
+<th class="pb-4 font-semibold text-right">Amount</th>
+</tr>
+</thead>
+<tbody class="text-body-md text-sm">
+<tr class="border-b border-outline-variant/50 hover:bg-surface-container-low transition-colors cursor-pointer group">
+<td class="py-6 px-2 font-semibold">#EE-92841</td>
+<td class="py-6">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-secondary-fixed"></div>
+<span>Julian Montgomery</span>
+</div>
+</td>
+<td class="py-6">Signature Silk Tuxedo</td>
+<td class="py-6">
+<span class="px-3 py-1 bg-tertiary-fixed text-on-tertiary-container text-[10px] uppercase font-bold tracking-tighter">Shipped</span>
+</td>
+<td class="py-6 text-right font-bold">$4,200.00</td>
+</tr>
+<tr class="border-b border-outline-variant/50 hover:bg-surface-container-low transition-colors cursor-pointer group">
+<td class="py-6 px-2 font-semibold">#EE-92840</td>
+<td class="py-6">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-primary-fixed"></div>
+<span>Elena Rossi</span>
+</div>
+</td>
+<td class="py-6">Hand-Burnished Oxfords</td>
+<td class="py-6">
+<span class="px-3 py-1 bg-surface-variant text-secondary text-[10px] uppercase font-bold tracking-tighter">Pending</span>
+</td>
+<td class="py-6 text-right font-bold">$850.00</td>
+</tr>
+<tr class="border-b border-outline-variant/50 hover:bg-surface-container-low transition-colors cursor-pointer group">
+<td class="py-6 px-2 font-semibold">#EE-92839</td>
+<td class="py-6">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-tertiary-fixed"></div>
+<span>Marcus Chen</span>
+</div>
+</td>
+<td class="py-6">Wool Overcoat (Charcoal)</td>
+<td class="py-6">
+<span class="px-3 py-1 bg-secondary-container text-secondary text-[10px] uppercase font-bold tracking-tighter">Processing</span>
+</td>
+<td class="py-6 text-right font-bold">$2,100.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</main>
+</div>
+<!-- Footer Component (Shared) -->
+<footer class="w-full py-section-gap border-t border-outline-variant bg-surface-container-low">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="md:col-span-1">
+<h2 class="font-display-lg text-display-lg text-primary mb-4">EE</h2>
+<p class="font-body-md text-secondary text-sm">ARCHITECTED FOR PERFECTION.</p>
+</div>
+<div class="flex flex-col gap-2">
+<p class="font-label-sm uppercase tracking-widest text-primary font-bold mb-2">Company</p>
+<a class="font-body-md text-secondary hover:text-tertiary transition-all" href="#">The Atelier</a>
+<a class="font-body-md text-secondary hover:text-tertiary transition-all" href="#">Privacy Policy</a>
+</div>
+<div class="flex flex-col gap-2">
+<p class="font-label-sm uppercase tracking-widest text-primary font-bold mb-2">Services</p>
+<a class="font-body-md text-secondary hover:text-tertiary transition-all" href="#">Sustainability</a>
+<a class="font-body-md text-secondary hover:text-tertiary transition-all" href="#">Global Concierge</a>
+</div>
+<div class="flex flex-col gap-4">
+<p class="font-label-sm uppercase tracking-widest text-primary font-bold mb-2">Subscribe</p>
+<div class="flex border-b border-primary pb-2">
+<input class="bg-transparent border-none focus:ring-0 w-full font-label-sm p-0" placeholder="Email Address" type="email"/>
+<span class="material-symbols-outlined cursor-pointer">arrow_right_alt</span>
+</div>
+<p class="font-body-md text-secondary text-[10px] uppercase tracking-wider">© 2024 ELITE EDITIONS.</p>
+</div>
+</div>
+</footer>
+<!-- Script for interactive elements -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Hover effect for metrics
+            const cards = document.querySelectorAll('.grid > div');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-4px)';
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0)';
+                });
+                card.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+            });
+
+            // Smooth header visibility
+            let lastScroll = 0;
+            window.addEventListener('scroll', () => {
+                const currentScroll = window.pageYOffset;
+                const header = document.querySelector('header');
+                if (currentScroll > lastScroll && currentScroll > 100) {
+                    header.style.transform = 'translateY(-100%)';
+                } else {
+                    header.style.transform = 'translateY(0)';
+                }
+                header.style.transition = 'transform 0.4s ease';
+                lastScroll = currentScroll;
+            });
+        });
+    </script>
+</body></html>
