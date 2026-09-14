@@ -1,7 +1,6 @@
 import axios from "axios";
 
-const BACKEND_BASE_URL="http://localhost:4000/api/v1";
-  
+const BACKEND_BASE_URL = "https://elite-attire-backend.onrender.com/api/v1"; 
 const api=axios.create({
     baseURL:BACKEND_BASE_URL,
     withCredentials:true,

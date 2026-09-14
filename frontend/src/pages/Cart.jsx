@@ -4,8 +4,8 @@ import api from "../utils/api";
 import cartCSS from "./Cart.module.css";
  import { useNavigate } from "react-router-dom";
 
+const IMAGE_API = "https://elite-attire-backend.onrender.com/uploads/";
 
-const IMAGE_API = "http://localhost:4000/uploads/";
 const getImageUrl = (imageName) => {
   if (!imageName) return "";
 

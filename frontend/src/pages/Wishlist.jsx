@@ -3,7 +3,7 @@ import api from "../utils/api";
 import { FaHeart } from "react-icons/fa";
 import "./Wishlist.css";
 
-const IMAGE_API = "http://localhost:4000/uploads/";
+const IMAGE_API = "https://elite-attire-backend.onrender.com/uploads/";
 
 const getImageUrl = (imageName) => {
   if (!imageName) return "";

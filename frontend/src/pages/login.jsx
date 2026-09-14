@@ -158,7 +158,7 @@ function Auth() {
                     name="confirmPassword"
                     id="conf-password"
 
-                    name="conf-password"
+                  
 
                     placeholder="••••••••"
 
