@@ -21,10 +21,25 @@ const wishlistRoutes = require("./routes/wishlistRoutes");
 const cartRoutes = require("./routes/cartRoutes");
 app.use(express.json());
 app.use(cookieParser());
+
+const allowedOrigins = [
+  "https://elite-attire-frontend.onrender.com",
+  "http://localhost:5173",
+  "http://localhost:5174"
+];
+
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL,
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"]
   })
 );
 app.use("/uploads", express.static("uploads"));
