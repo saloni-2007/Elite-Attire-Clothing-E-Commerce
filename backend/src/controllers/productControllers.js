@@ -117,7 +117,8 @@ async function addProduct(req, res) {
     keywords,
   } = data;
 
-  const images = req?.files?.map((file) => file.filename);
+  // Cloudinary image URLs
+  const images = req?.files?.map((file) => file.path) || [];
 
   // Search Keywords
   const keywordsArray = [
@@ -181,8 +182,7 @@ async function updateProduct(req, res) {
   if (!Array.isArray(oldImages)) {
     oldImages = [oldImages];
   }
-
-  const newImages = req.files?.map((file) => file.filename) || [];
+const newImages = req.files?.map((file) => file.path) || [];
 
   const images =
     newImages.length > 0

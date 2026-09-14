@@ -19,26 +19,17 @@ function Product() {
  const [sort, setSort] = useState("");
 
 const searchText= new URLSearchParams(location.search).get("search") || "";
-
-const IMAGE_API = "https://elite-attire-backend.onrender.com/uploads/";
-
 const getImageUrl = (imageName) => {
   if (!imageName) return "";
 
-  const fileName = imageName.split("/").pop();
-  const parts = fileName.split("-");
-
-  if (
-    parts.length > 1 &&
-    /^\d+$/.test(parts[0]) &&
-    /^\d+$/.test(parts[1])
-  ) {
-    return IMAGE_API + parts.slice(1).join("-");
+  // Agar image Cloudinary ki hai
+  if (imageName.startsWith("http")) {
+    return imageName;
   }
 
-  return IMAGE_API + fileName;
+  // Purani local images ke liye
+  return `https://elite-attire-backend.onrender.com/uploads/${imageName}`;
 };
-
 
 
 
