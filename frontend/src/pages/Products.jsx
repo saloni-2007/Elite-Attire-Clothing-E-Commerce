@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import api from "../utils/api";
 import productCSS from "./Products.module.css";
 import { FaRegHeart } from "react-icons/fa";
-import { useCart } from "../context/CartContext";
+import { useCart } from "../context/TempContext";
 import { useLocation } from "react-router-dom";
 
 

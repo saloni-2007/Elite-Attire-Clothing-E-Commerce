@@ -1,5 +1,5 @@
 import { FaSearch, FaShoppingCart } from "react-icons/fa";
-import { useCart } from "../context/CartContext";
+import { useCart } from "../context/TempContext";
 
 import { Link ,useNavigate} from "react-router-dom";
 import { useState } from "react";

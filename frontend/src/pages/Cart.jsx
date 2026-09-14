@@ -1,4 +1,4 @@
-import { useCart } from "../context/CartContext";
+import { useCart } from "../context/TempContext";
 import { useEffect, useState } from "react";
 import api from "../utils/api";
 import cartCSS from "./Cart.module.css";
