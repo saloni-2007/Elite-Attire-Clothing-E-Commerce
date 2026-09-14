@@ -3,6 +3,22 @@ import api from "../utils/api";
 import orderCSS from "./MyOrders.module.css";
 
 const IMAGE_API = "http://localhost:4000/uploads/";
+const getImageUrl = (imageName) => {
+  if (!imageName) return "";
+
+  const fileName = imageName.split("/").pop();
+  const parts = fileName.split("-");
+
+  if (
+    parts.length > 1 &&
+    /^\d+$/.test(parts[0]) &&
+    /^\d+$/.test(parts[1])
+  ) {
+    return IMAGE_API + parts.slice(1).join("-");
+  }
+
+  return IMAGE_API + fileName;
+};
 
 function MyOrders() {
   const [orders, setOrders] = useState([]);
@@ -73,9 +89,9 @@ function MyOrders() {
     return (
       <div className={orderCSS.product} key={item._id}>
         <img
-          src={IMAGE_API + item.productId.images[0]}
-          alt={item.productId.title}
-        />
+  src={getImageUrl(item.productId?.images?.[0])}
+  alt={item.productId?.title}
+/>
 
         <div>
           <h4>{item.productId.title}</h4>

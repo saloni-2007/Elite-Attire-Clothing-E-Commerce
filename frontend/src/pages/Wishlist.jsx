@@ -2,6 +2,24 @@ import { useEffect, useState } from "react";
 import api from "../utils/api";
 import { Link } from "react-router-dom";
 import "./Wishlist.css";
+const IMAGE_API = "http://localhost:4000/uploads/";
+
+const getImageUrl = (imageName) => {
+  if (!imageName) return "";
+
+  const fileName = imageName.split("/").pop();
+  const parts = fileName.split("-");
+
+  if (
+    parts.length > 1 &&
+    /^\d+$/.test(parts[0]) &&
+    /^\d+$/.test(parts[1])
+  ) {
+    return IMAGE_API + parts.slice(1).join("-");
+  }
+
+  return IMAGE_API + fileName;
+};
 
 function Wishlist() {
   const [wishlist, setWishlist] = useState([]);
@@ -51,8 +69,8 @@ const [isModalOpen, setIsModalOpen] = useState(false);
           .filter((item) => item.product && item.product.images)
              .map((item) => (
             <div className="wishlist-card" key={item._id}>
-              <img
-             src={`http://localhost:4000/uploads/${item.product?.images?.[0] || "no-image.png"}`}
+             <img
+             src={getImageUrl(item.product?.images?.[0])}
              alt={item.product?.title}
               />
 
@@ -102,10 +120,10 @@ const [isModalOpen, setIsModalOpen] = useState(false);
       </button>
 
       <img
-        src={`http://localhost:4000/uploads/${selectedProduct.images[0]}`}
-        alt={selectedProduct.title}
-        className="bigImage"
-      />
+  src={getImageUrl(selectedProduct.images?.[0])}
+  alt={selectedProduct.title}
+  className="bigImage"
+/>
 
       <h2>{selectedProduct.title}</h2>
 

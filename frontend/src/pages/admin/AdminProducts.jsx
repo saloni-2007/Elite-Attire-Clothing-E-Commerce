@@ -22,6 +22,23 @@ function AdminProducts() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const IMAGE_API="http://localhost:4000/uploads/";
+const getImageUrl = (imageName) => {
+  if (!imageName) return "";
+
+  const fileName = imageName.split("/").pop();
+  const parts = fileName.split("-");
+
+  if (
+    parts.length > 1 &&
+    /^\d+$/.test(parts[0]) &&
+    /^\d+$/.test(parts[1])
+  ) {
+    return IMAGE_API + parts.slice(1).join("-");
+  }
+
+  return IMAGE_API + fileName;
+};
+
   const [data, setData] = useState({
     title: "",
     description: "",
@@ -413,7 +430,7 @@ if (endPage - startPage < maxVisiblePages - 1) {
 
                  <img
                key={index}
-             src={`http://localhost:4000/uploads/${img}`}
+            src={getImageUrl(img)}
                   alt=""
                   width="100"
                    />
@@ -455,7 +472,11 @@ if (endPage - startPage < maxVisiblePages - 1) {
         {productsData.map((product) => (
           <div key={product?._id} className={productCSS["product-card"]}>
             <div className={productCSS["image-wrapper"]}>
-              <img src={ IMAGE_API+product?.images?.[0]} alt={product?.title} />
+             
+               <img
+  src={getImageUrl(product?.images?.[0])}
+  alt={product?.title}
+/>
 
               <button
            type="button"

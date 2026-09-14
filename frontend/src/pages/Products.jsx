@@ -20,6 +20,29 @@ function Product() {
 
 const searchText= new URLSearchParams(location.search).get("search") || "";
   const IMAGE_API = "http://localhost:4000/uploads/";
+const getImageUrl = (imageName) => {
+  if (!imageName) return "";
+
+  const fileName = imageName.split("/").pop();
+  const parts = fileName.split("-");
+
+  if (
+    parts.length > 1 &&
+    /^\d+$/.test(parts[0]) &&
+    /^\d+$/.test(parts[1])
+  ) {
+    return IMAGE_API + parts.slice(1).join("-");
+  }
+
+  return IMAGE_API + fileName;
+};
+
+
+
+
+
+
+
 
   async function getData() {
     try {
@@ -309,7 +332,7 @@ XL
             <div key={product?._id} className={productCSS["product-card"]}>
               <div className={productCSS["image-wrapper"]}>
                 <img
-                  src={IMAGE_API + product?.images?.[0]}
+                 src={getImageUrl(product?.images?.[0])}
                   alt={product?.title}
                 />
 

@@ -5,6 +5,23 @@ import checkoutCSS from "./Checkout.module.css";
 
 const IMAGE_API = "http://localhost:4000/uploads/";
 
+const getImageUrl = (imageName) => {
+  if (!imageName) return "";
+
+  const fileName = imageName.split("/").pop();
+  const parts = fileName.split("-");
+
+  if (
+    parts.length > 1 &&
+    /^\d+$/.test(parts[0]) &&
+    /^\d+$/.test(parts[1])
+  ) {
+    return IMAGE_API + parts.slice(1).join("-");
+  }
+
+  return IMAGE_API + fileName;
+};
+
 function Checkout() {
   const [cart, setCart] = useState([]);
   const [shippingAddress, setShippingAddress] = useState("");
@@ -216,9 +233,9 @@ razor.on("payment.failed", function (response) {
           <div className={checkoutCSS.card} key={item.product._id}>
 
             <img
-              src={IMAGE_API + item.product.images[0]}
-              alt={item.product.title}
-            />
+  src={getImageUrl(item.product?.images?.[0])}
+  alt={item.product?.title}
+/>
 
             <div>
               <h3>{item.product.title}</h3>

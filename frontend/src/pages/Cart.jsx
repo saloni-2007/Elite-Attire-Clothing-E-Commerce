@@ -6,6 +6,24 @@ import cartCSS from "./Cart.module.css";
 
 
 const IMAGE_API = "http://localhost:4000/uploads/";
+const getImageUrl = (imageName) => {
+  if (!imageName) return "";
+
+  const fileName = imageName.split("/").pop();
+  const parts = fileName.split("-");
+
+  if (
+    parts.length > 1 &&
+    /^\d+$/.test(parts[0]) &&
+    /^\d+$/.test(parts[1])
+  ) {
+    return IMAGE_API + parts.slice(1).join("-");
+  }
+
+  return IMAGE_API + fileName;
+};
+
+
 
 function Cart() {
   const [cart, setCart] = useState([]);
@@ -141,9 +159,9 @@ const totalPrice = cart.reduce((total, item) => {
             <div className={cartCSS.card} key={item.product._id}>
 
               <img
-                src={IMAGE_API + item.product.images[0]}
-                alt={item.product.title}
-              />
+  src={getImageUrl(item.product.images?.[0])}
+  alt={item.product.title}
+/>
 
               <div className={cartCSS.info}>
 
